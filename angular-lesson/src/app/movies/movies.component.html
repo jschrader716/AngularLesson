@@ -1,0 +1,12 @@
+<!-- <p>movies works!</p> -->
+<h2>Movie Title: {{ myMovie.name }}</h2>
+<p *ngIf="myMovie.rating > 7">Rating: {{ myMovie.rating }}/10</p>
+
+<h2> Airing Movies and Ratings</h2>
+<ul class="movies">
+    <li *ngFor="let movie of movies" (click)="onSelect(movie)">
+      Name: <span>{{movie.name}}</span> Current Rating:  {{movie.rating}}
+    </li>
+</ul>
+
+<app-movie-rating [movie]="selectedMovie"></app-movie-rating>
