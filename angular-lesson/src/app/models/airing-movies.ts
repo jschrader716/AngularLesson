@@ -1,5 +1,5 @@
 
-import { Movie } from './models/movie';
+import { Movie } from './movie';
 
 export const AIRINGMOVIES: Movie[] = [
     { rating: 10, name: 'End Game' },
