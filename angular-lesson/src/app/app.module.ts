@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { MoviesComponent } from './movies/movies.component';
+import { MovieRatingComponent } from './movie-rating/movie-rating.component';  
+import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieRatingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
