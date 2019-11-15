@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../models/movie';
-import {AIRINGMOVIES} from '../models/airing-movies';
+import { AIRINGMOVIES } from '../models/airing-movies';
 
 @Component({
   selector: 'app-movies',
@@ -8,12 +8,16 @@ import {AIRINGMOVIES} from '../models/airing-movies';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  
+  public newMovieName = '';
+
   myMovie: Movie = {
     name: 'Jaws',
     rating: 8
   }
-  movies = AIRINGMOVIES;
-  selectedMovie: Movie;
+  
+  public movies = AIRINGMOVIES;
+  public selectedMovie: Movie;
 
   constructor() { }
 
@@ -22,5 +26,10 @@ export class MoviesComponent implements OnInit {
 
   onSelect(movie: Movie): void {
     this.selectedMovie = movie;
+  }
+
+  displayMovieName(newMovie) {
+    this.newMovieName = newMovie;
+    this.movies.push({name:newMovie, rating: 8});
   }
 }

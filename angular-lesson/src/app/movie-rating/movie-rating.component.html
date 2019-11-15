@@ -1,11 +1,13 @@
 <div *ngIf="movie">
-
     <h2>{{movie.name | uppercase}}</h2>
     <div><span>Name: </span>{{movie.name}}</div>
     <div>
       <label>Rating:
         <input [(ngModel)]="movie.rating" placeholder="rating"/>
       </label>
+      <br/>
+      <label>Movie Name: </label>
+      <input #newName/>
+      <button (click)="emitMovie(newName.value)">Confirm</button>
     </div>
-  
 </div>
