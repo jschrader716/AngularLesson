@@ -19,4 +19,17 @@
     </table>
 </ul>
 
+<h3>Service Functions</h3>
+<p>Average Rating: {{ (ratingAverage) ? ratingAverage : "N/A" }}</p>
+<button (click)="calcAverage()">Calculate Average</button>
+
+<p>Highest Rating: {{ (highestRating) ? highestRating : "N/A"}}</p>
+<button (click)="getHighestRating()">Get Highest Rating</button>
+
+<p>Lowest Rating: {{ (lowestRating || lowestRating == 0) ? lowestRating : "N/A"}}</p>
+<button (click)="getLowestRating()">Get Lowest Rating</button>
+
 <app-movie-rating [movie]="selectedMovie" (movieName)="displayMovieName($event)"></app-movie-rating>
+
+<a routerLink="/sports"><button>Navigate with routerLink!</button></a>
+<button (click)="navigateToSports()">Navigate with function!</button>
