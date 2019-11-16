@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../models/movie';
 
 
@@ -9,10 +9,14 @@ import { Movie } from '../models/movie';
 })
 export class MovieRatingComponent implements OnInit {
   @Input() movie: Movie;
+  @Output() movieName = new EventEmitter();
   
   constructor() { }
 
   ngOnInit() {
   }
 
+  emitMovie(newName) {
+    this.movieName.emit(newName);
+  }
 }

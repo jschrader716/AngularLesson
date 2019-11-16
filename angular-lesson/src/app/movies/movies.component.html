@@ -1,19 +1,35 @@
 <h2>Movie Title: {{ myMovie.name }}</h2>
 <p *ngIf="myMovie.rating > 7">Rating: {{ myMovie.rating }}/10</p>
 
+<div class="newMovieName" *ngIf="newMovieName != ''">
+  <h2>Hey I'm in the parent component now! Yay!</h2>
+    <h2>New Name: {{ newMovieName }}</h2>
+</div>
+
 <h2> Airing Movies and Ratings</h2>
 <ul class="movies">
     <table>
-      <tr *ngFor="let movie of movies">
+      <tr *ngFor="let movie of movies; let i = index">
         <td>
           <li (click)="onSelect(movie)">
-              Name: <span>{{movie.name}}</span> Current Rating:  {{movie.rating}}
+              Name: <span>{{ movie.name }}</span> Current Rating:  {{ movie.rating }}
           </li>
         </td>
       </tr>
-
     </table>
-
 </ul>
 
-<app-movie-rating [movie]="selectedMovie"></app-movie-rating>
+<h3>Service Functions</h3>
+<p>Average Rating: {{ (ratingAverage) ? ratingAverage : "N/A" }}</p>
+<button (click)="calcAverage()">Calculate Average</button>
+
+<p>Highest Rating: {{ (highestRating) ? highestRating : "N/A"}}</p>
+<button (click)="getHighestRating()">Get Highest Rating</button>
+
+<p>Lowest Rating: {{ (lowestRating || lowestRating == 0) ? lowestRating : "N/A"}}</p>
+<button (click)="getLowestRating()">Get Lowest Rating</button>
+
+<app-movie-rating [movie]="selectedMovie" (movieName)="displayMovieName($event)"></app-movie-rating>
+
+<a routerLink="/sports"><button>Navigate with routerLink!</button></a>
+<button (click)="navigateToSports()">Navigate with function!</button>
